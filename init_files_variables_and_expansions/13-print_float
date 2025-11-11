@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%.2f\n" 5
+echo 5 | awk '{printf "%.2f\n", $1}'
