@@ -2,7 +2,7 @@
 #Auye
 count=1
 
-while [$count -lt 10]
+until  [$count -gt 10]
 do
 	echo "Best School"
 	((count++))
