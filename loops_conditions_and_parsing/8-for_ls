@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#auye
+ls
+for _ in ls
+do 
+	echo " $_ "
+done
