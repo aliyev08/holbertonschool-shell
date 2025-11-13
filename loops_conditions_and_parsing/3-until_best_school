@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Auye
+count=1
+
+while [$count -lt 10]
+do
+	echo "Best School"
+	((count++))
+done
