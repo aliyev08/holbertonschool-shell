@@ -7,13 +7,13 @@ do
 	then 
 		echo "Fizz"
 	else
-		echo count
+		echo $count
 	fi
 	if [ $count%5 -eq 0 ]
 	then	
 		echo "Buzz"
 	else
-		echo count
+		echo $count
 	fi
 	if [ $count%15 -eq 0]
 	then
