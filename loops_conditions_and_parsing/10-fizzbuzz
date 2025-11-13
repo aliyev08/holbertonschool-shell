@@ -3,21 +3,16 @@
 count=1
 while [ $count -lt 101 ]
 do
-	if ((count%3== 0))
-	then 
+	if ((count%15==0))
+	then
+		echo "FizzBuzz"
+	elif ((count%5==0))
+	then
+		echo "Buzz"
+	elif ((count%3==0))
 		echo "Fizz"
 	else
 		echo $count
-	fi
-	if ((count%5== 0))
-	then	
-		echo "Buzz"
-	else
-		echo $count
-	fi
-	if ((count%15== 0))
-	then
-		echo "FizzBuzz"
 	fi
 	((count++))
 done	
