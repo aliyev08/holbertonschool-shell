@@ -2,20 +2,24 @@
 #QULI
 count=1
 
-while [ $count -lt 21 ]
+while [ $count -le 20 ]
 do
-	echo $count
-	case [ $count -eq 4 ]
-		echo $count
-		echo "bad luck from China"
-	esac
-	case [ $count -eq 9 ]
-		echo $count
-		echo "bad luck from Japan"
-	esac
-	case [ $count -eq 17 ]
-		echo $count
-		echo "bad luck from Italy"
-	esac
-	((count++))
+    case $count in
+        4)
+            echo "$count"
+            echo "bad luck from China"
+            ;;
+        9)
+            echo "$count"
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo "$count"
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo "$count"
+            ;;
+    esac
+    ((count++))
 done
