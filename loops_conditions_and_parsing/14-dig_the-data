@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 #Heyder
-LOG_FILE="apache-access.log"
+awk '{print $1, $9}' apache-access.log | awk '
+{ key = $1" "$2; counts[key]++ } 
+END {
+    print counts["127.0.0.1 200"], "127.0.0.1 200"
+    print counts["192.168.1.10 403"], "192.168.1.10 403"
+    # lazım olduqda digər unikal IP + CODE-ləri buraya əlavə et
+}'
 
-awk '{count[$1" "$9]++} END {for (key in count) print count[key], key}' "$LOG_FILE" | sort -rn
