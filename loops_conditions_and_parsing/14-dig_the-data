@@ -2,14 +2,4 @@
 #Heyder
 LOG_FILE="apache-access.log"
 
-awk '
-{ count[$1" "$9]++ }
-END {
-    n = asorti(count, sorted_count, "@val_num_desc")
-    for (i = 1; i <= n; i++) {
-        split(sorted_count[i], arr, SUBSEP)
-        ip_code = sorted_count[i]
-        print count[ip_code], ip_code
-    }
-}
-' "$LOG_FILE"
+awk '{count[$1" "$9]++} END {for (key in count) print count[key], key}' "$LOG_FILE" | sort -rn
