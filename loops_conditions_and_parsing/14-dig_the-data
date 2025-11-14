@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 #Heyder
-
-awk 'NF>=9 {print $1, $9}' apache-access.log
+awk '
+NF>=9 {count[$1" "$9]++}
+END {
+    for (i in count) print count[i], i
+}' apache-access.log | sort -rn
