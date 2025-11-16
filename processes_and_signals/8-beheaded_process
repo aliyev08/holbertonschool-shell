@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#auye
+pkill -f 7-highlander
