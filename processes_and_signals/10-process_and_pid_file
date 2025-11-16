@@ -1,0 +1,35 @@
+#!/usr/env/bin bash
+#auye
+PIDFILE="/var/run/myscript.pid"
+
+# Create PID file
+echo $$ > "$PIDFILE"
+
+# SIGTERM → print, delete pid file, exit
+term_handler() {
+    echo "I hate the kill command"
+    rm -f "$PIDFILE"
+    exit 0
+}
+
+# SIGINT (Ctrl+C) → print only
+int_handler() {
+    echo "Y U no love me?!"
+}
+
+# SIGQUIT → delete pid file and exit
+quit_handler() {
+    rm -f "$PIDFILE"
+    exit 0
+}
+
+trap term_handler SIGTERM
+trap int_handler SIGINT
+trap quit_handler SIGQUIT
+
+# Infinite loop
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
